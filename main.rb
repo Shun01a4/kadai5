@@ -8,6 +8,7 @@ Window.width  = 800
 Window.height = 600
 loop_ct=0
 score=0
+fat=1
 
 player_img = Image.load("player.png")
 player_img.setColorKey([0, 0, 0])
@@ -42,5 +43,14 @@ Window.loop do
   # 当たり判定
   if(Sprite.check(player, enemies))
   	score+=1
+  end
+  
+  if(score%30==0 && score!=0)
+  	fat*=1.05
+  	  if(score%600==0)
+  	    fat=1
+      end
+    score+=1
+  	player.size(fat)
   end
 end
