@@ -22,13 +22,13 @@ font=Font.new(20)
 
 enemies = []
 10.times do
-  enemies << Enemy.new(rand(800), rand(300), enemy_img)
+  enemies << Enemy.new(rand(800), rand(600), enemy_img)
 end
 
 Window.loop do
   break if Input.keyPush?(K_ESCAPE)
   if(loop_ct%3==0)
- 	 enemies << Enemy.new(rand(800), rand(300), enemy_img)
+ 	 enemies << Enemy.new(rand(800), rand(600), enemy_img)
  	 loop_ct=0
   end
   loop_ct+=1
@@ -44,9 +44,9 @@ Window.loop do
   if(Sprite.check(player, enemies))
   	score+=1
   end
-  
+
   if(score%30==0 && score!=0)
-  	fat*=1.05
+  	fat*=1.1
   	  if(score%600==0)
   	    fat=1
       end
